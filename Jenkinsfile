@@ -15,7 +15,7 @@ pipeline{
                 """
             }
         }
-    }
+    
         stage ('Push Docker Image') {
             steps {
                     withCredentials([string(credentialsId: 'docker-hub-pass', variable: 'dockerHubPwd')]) {
@@ -28,7 +28,5 @@ pipeline{
                 """
             }
         }
-        
-        
-        
+    }   
 }
