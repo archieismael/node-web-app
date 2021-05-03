@@ -1,12 +1,19 @@
-node {
-
-    // checkout scm
-
-    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-pwd') {
-
-        def customImage = docker.build("archieismael/node-web-app:001")
-
-        /* Push the container to the custom Registry */
-        customImage.push()
+pipeline{
+        agent {
+            label 'master'
+        }
+        tools {
+            maven 'maven_home'
+            jdk 'java_home'
+        }
+    
+    stages{
+        stage ('Build Docker Image') {
+            steps {
+                sh """
+                docker build -t archieismael/node-web-app:001 .
+                """
+            }
+        }
     }
 }
