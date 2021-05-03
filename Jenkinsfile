@@ -2,7 +2,7 @@ node {
 
     // checkout scm
 
-    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-pass') {
+    docker.withRegistry('https://registry.hub.docker.com', 'archieismael-dockerhub') {
 
         def customImage = docker.build("archieismael/node-web-app:001")
 
