@@ -24,7 +24,7 @@ pipeline{
                        """
                     }
                 sh """
-                    docker push node-web-app:001
+                    docker push archieismael/node-web-app:001
                 """
             }
         }
