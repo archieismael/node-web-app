@@ -15,7 +15,6 @@ pipeline{
                 """
             }
         }
-    
         stage ('Push Docker Image') {
             steps {
                     withCredentials([string(credentialsId: 'docker-hub-pass', variable: 'dockerHubPwd')]) {
@@ -28,5 +27,13 @@ pipeline{
                 """
             }
         }
+        stage ('Run Docker Container') {
+            steps {
+                sh """
+                docker run -p 50000:8080 -d archieismael/node-web-app:001
+                """
+            }
+        }
+
     }   
 }
