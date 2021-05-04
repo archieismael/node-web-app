@@ -34,6 +34,13 @@ pipeline{
                 """
             }
         }
+        stage ('Test Run Application from Docker Container') {
+            steps {
+                sh """
+                curl -i http://10.0.0.50:50010
+                """
+            }
+        }
 
     }   
 }
