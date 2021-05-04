@@ -11,7 +11,7 @@ pipeline{
         stage ('Build Docker Image') {
             steps {
                 sh """
-                docker build -t archieismael/node-web-app:001 .
+                docker build -t archieismael/node-web-app:002 .
                 """
             }
         }
@@ -23,14 +23,14 @@ pipeline{
                        """
                     }
                 sh """
-                    docker push archieismael/node-web-app:001
+                    docker push archieismael/node-web-app:002
                 """
             }
         }
         stage ('Run Docker Container') {
             steps {
                 sh """
-                docker run -p 50000:8080 -d archieismael/node-web-app:001
+                docker run -p 50010:8080 -d archieismael/node-web-app:002
                 """
             }
         }
